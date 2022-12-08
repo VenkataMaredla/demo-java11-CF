@@ -27,7 +27,7 @@ steps:
   inputs:
     cfEndpoint: 'cflogin'
     deploymentOptions: 'manifest'
-    cfManifest:  '$(System.DefaultWorkingDirectory)/_VenkataMaredla_demo-java11-CF/manifest.yml'
+    cfManifest: '/home/vsts/work/1/s/_VenkataMaredla_demo-java11-CF/manifest.yml'
     createServices: false
     bindServices: false
   
