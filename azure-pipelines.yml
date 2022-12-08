@@ -23,5 +23,5 @@ steps:
   displayName: 'Push to Cloud Foundry'
   inputs:
     cfEndpoint: cflogin
-    cfManifest: '$(System.DefaultWorkingDirectory)/_VenkataMaredla_demo-java11-CF/manifest.yml'
+    cfManifest: '$(Build.SourcesDirectory)/_VenkataMaredla_demo-java11-CF/manifest.yml'
 
