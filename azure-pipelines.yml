@@ -11,20 +11,17 @@ pool:
 
 steps:
 - task: Maven@4
+  displayName: 'Maven $(System.DefaultWorkingDirectory)/_VenkataMaredla_demo-java11-CF/pom.xml'
   inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    goals: 'package'
-- task: CloudFoundryCLIInstall@0
+    mavenPomFile: '$(System.DefaultWorkingDirectory)/_VenkataMaredla_demo-java11-CF/pom.xml'
+    publishJUnitResults: false
+steps:
+- task: ms-vsts.cloud-foundry-build-extension.cloud-foundry-cli-install-task.CloudFoundryCLIInstall@0
+  displayName: 'Install Cloud Foundry CLI 6.43.0'
+steps:
+- task: ms-vsts.cloud-foundry-build-extension.cloud-foundry-task.CloudFoundry@1
+  displayName: 'Push to Cloud Foundry'
   inputs:
-    cfVersion: '6.43.0'
-- task: CloudFoundry@1
-  inputs:
-    cfEndpoint: 'cflogin'
-    deploymentOptions: 'manifest'
-    cfManifest: 'demo-java11-CF/manifest.yml'
-    createServices: false
-    bindServices: false
+    cfEndpoint: cflogin
+    cfManifest: '$(System.DefaultWorkingDirectory)/_VenkataMaredla_demo-java11-CF/manifest.yml'
+
