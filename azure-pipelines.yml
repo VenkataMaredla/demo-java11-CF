@@ -20,10 +20,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-
-- script: |
-    mvn verify package sonar:sonar -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.organization=azuredevopssonartestwithjava -Dsonar.projectKey=azuredevopswithjavakey -Dsonar.login=8c930426d95f71f9c5d06a34b9b032271219c94f
-  displayName: "Integrate SAST using SonarCloud in Azure DevOps DevSecOps Pipelines"
+    
 - task: Docker@2
   inputs:
     containerRegistry: 'hsdpdockerhublogin'
