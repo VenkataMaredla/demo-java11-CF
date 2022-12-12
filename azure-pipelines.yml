@@ -20,6 +20,11 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+ - script: |
+    pwd
+    ls -ltr demo-java11-cF/target
+    java -version  
+  displayName: verify jar file path
     
 - task: Docker@2
   inputs:
