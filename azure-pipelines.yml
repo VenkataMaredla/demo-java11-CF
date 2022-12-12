@@ -22,7 +22,7 @@ steps:
     goals: 'package'
 - script: |
     pwd
-    ls -ltr demo-java11-cF/target
+    ls -ltr /home/vsts/work/1/s/target
     java -version  
   displayName: verify jar file path
     
